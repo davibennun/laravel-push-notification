@@ -4,7 +4,7 @@ return array(
 
     'appNameIOS'=>array(
     	'environment'=>'development',
-    	'certificate'=>'path_relative_to_app_folder',
+    	'certificate'=>'path',
     	'passPhrase'=>'password',
     	'service'=>'apns'
     ),
