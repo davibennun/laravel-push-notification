@@ -35,12 +35,12 @@ This will generate a config file like this
 array(
     'appNameIOS'=>array(
         'environment'=>'development',
-    	'certificate'=>'path_relative_to_app_folder',
+    	'certificate'=>'/path/to/certificate.pem',
     	'passPhrase'=>'password',
     	'service'=>'apns'
     ),
     'appNameAndroid'=>array(
-    	'environment'=>'development',
+    	'environment'=>'production',
     	'apiKey'=>'yourAPIKey',
     	'service'=>'gcm'
     )
