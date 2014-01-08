@@ -19,7 +19,7 @@ Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider
 Alias the PushNotification facade by adding it to the aliases array in the `app/config/app.php` file.
 ```php
 'aliases' => array(
-    'Raygun' => 'Davibennun\LaravelPushNotification\Facades\PushNotification'
+    'PushNotification' => 'Davibennun\LaravelPushNotification\Facades\PushNotification'
 )
 ```
 
@@ -46,11 +46,11 @@ array(
     )
 );
 ```
-Where all first level keys corresponds to an service configuration, each service has its own properties, android for instance have `apiKey` when IOS uses `certificate` and `passPhrase`. You can set as many services configurations as you want, one for each app.
+Where all first level keys corresponds to an service configuration, each service has its own properties, android for instance have `apiKey` and IOS uses `certificate` and `passPhrase`. You can set as many services configurations as you want, one for each app.
 
 #####Dont forget to set `service` key to identify IOS `'service'=>'apns'` and Android `'service'=>'gcm'`
 
-###The certificate path must be an absolute path, so in the configuration file you can use these:
+#####The certificate path must be an absolute path, so in the configuration file you can use these:
 ```
 //Path to the 'app' folder
 'certificate'=>app_path().'/myCert.pem'
@@ -65,6 +65,7 @@ PushNotification::app('appNameIOS')
                 ->send('Hello World, i`m a push message');
 
 ```
+Where app argument `appNameIOS` refers to defined service in config file.
 To multiple devices and optioned message:
 ```php
 
@@ -90,7 +91,7 @@ $message = PushNotification::Message('Message Text',array(
         'we' => 'want', 'send to app'
     ))
 ));
-PushNotification::app('appNameIos')
+PushNotification::app('appNameIOS')
                 ->to($devices)
                 ->send($message);
 
@@ -98,7 +99,7 @@ PushNotification::app('appNameIos')
 This package is wrapps [Notification Package] and adds some flavor to it.
 
 ####Usage advice
-This package should be used with [Laravel Queues], so pushes dont blocks the use and are processed in the background, meaning a better flow.
+This package should be used with [Laravel Queues], so pushes dont blocks the user and are processed in the background, meaning a better flow.
 
 
 
