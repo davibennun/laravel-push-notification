@@ -3,13 +3,13 @@
 return array(
 
     'appNameIOS'=>array(
-    	'environment'=>'development',
-    	'certificate'=>'path',
+        'environment'=>'development',
+    	'certificate'=>'/path/to/certificate.pem',
     	'passPhrase'=>'password',
     	'service'=>'apns'
     ),
     'appNameAndroid'=>array(
-    	'environment'=>'development',
+    	'environment'=>'production',
     	'apiKey'=>'yourAPIKey',
     	'service'=>'gcm'
     )
