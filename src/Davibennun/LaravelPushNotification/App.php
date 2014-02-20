@@ -25,7 +25,7 @@ class App{
 		return $this;
 	}
 
-	public function send($message,$options=null){
+	public function send($message,$options=array()){
 		$push = new Push($this->adapter, $this->addressee, $message instanceof Message ? $message : new Message($message,$options));
 
 		$this->pushManager->add($push);
