@@ -35,4 +35,8 @@ class App {
         return $this->pushManager->push();
     }
 
+    public function feedback() {
+        return [];
+    }
+
 }
