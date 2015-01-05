@@ -30,6 +30,8 @@ class App {
         $push = new Push($this->adapter, $this->addressee, ($message instanceof Message) ? $message : new Message($message, $options));
 
         $this->pushManager->add($push);
+        
+        $this->pushManager->push();
 
         return $this;
     }
