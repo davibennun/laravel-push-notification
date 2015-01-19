@@ -15,7 +15,7 @@ class App {
 
         $adapterConfig = $config;
         unset($adapterConfig['environment'], $adapterConfig['service']);
-        
+
         $this->adapter = new $adapterClassName($adapterConfig);
     }
 
@@ -26,13 +26,17 @@ class App {
         return $this;
     }
 
-    public function send($message, $options = array())
-    {
+    public function send($message, $options = array()) {
         $push = new Push($this->adapter, $this->addressee, ($message instanceof Message) ? $message : new Message($message, $options));
 
         $this->pushManager->add($push);
+        
+        $this->pushManager->push();
 
-        return $this->pushManager->push();
+        return $this;
     }
 
+    public function getFeedback() {
+        return $this->pushManager->getFeedback($this->adapter);
+    }
 }
