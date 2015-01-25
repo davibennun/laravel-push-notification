@@ -12,7 +12,7 @@ Update your `composer.json` file to include this package as a dependency
 ```
 
 Register the PushNotification service provider by adding it to the providers array in the `app/config/app.php` file.
-```
+```php
 'providers' => array(
     Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider
 )
@@ -33,7 +33,7 @@ php artisan config:publish davibennun/laravel-push-notification
 ```
 
 This will generate a config file like this
-```
+```php
 array(
     'appNameIOS'=>array(
 		'environment' => 'development',
