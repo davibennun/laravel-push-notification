@@ -14,7 +14,7 @@ Update your `composer.json` file to include this package as a dependency
 Register the PushNotification service provider by adding it to the providers array in the `app/config/app.php` file.
 ```php
 'providers' => array(
-    Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider
+    'Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider'
 )
 ```
 
@@ -53,55 +53,58 @@ Where all first level keys corresponds to an service configuration, each service
 ##### Dont forget to set `service` key to identify IOS `'service'=>'apns'` and Android `'service'=>'gcm'`
 
 ##### The certificate path must be an absolute path, so in the configuration file you can use these:
-```
-//Path to the 'app' folder
-'certificate'=>app_path().'/myCert.pem'
+```php
+// Path to the 'app' folder
+'certificate' => app_path().'/myCert.pem'
 ```
 Laravel functions are also available `public_path()` `storage_path()` `base_path()`
 
 # Usage
 ```php
-
 PushNotification::app('appNameIOS')
-                ->to($deviceToken)
-                ->send('Hello World, i`m a push message');
-
+                    ->to($deviceToken)
+                    ->send('Hello World, i`m a push message');
 ```
+
 Where app argument `appNameIOS` refers to defined service in config file.
 To multiple devices and optioned message:
+
 ```php
 $devices = PushNotification::DeviceCollection(array(
     PushNotification::Device('token', array('badge' => 5)),
     PushNotification::Device('token1', array('badge' => 1)),
     PushNotification::Device('token2')
 ));
+
 $message = PushNotification::Message('Message Text',array(
-    'badge' => 1,
-    'sound' => 'example.aiff',
-    
+    'badge'        => 1,
+    'sound'        => 'example.aiff',
     'actionLocKey' => 'Action button title!',
-    'locKey' => 'localized key',
+    'locKey'       => 'localized key',
     'locArgs' => array(
         'localized args',
         'localized args',
     ),
     'launchImage' => 'image.jpg',
-    
-    'custom' => array('custom data' => array(
-        'we' => 'want', 'send to app'
-    ))
+
+    'custom' => array(
+        'custom_data' => array(
+            'we' => 'want send to app'
+        )
+    )
 ));
 
-collection = PushNotification::app('appNameIOS')
-    ->to($devices)
-    ->send($message);
+$collection = PushNotification::app('appNameIOS')
+                ->to($devices)
+                ->send($message);
 
-// get response for each device push
-foreach ($collection->pushManager as $push) {
+// Get response for each device push
+foreach ($collection->pushManager as $push)
+{
     $response = $push->getAdapter()->getResponse();
 }
 
-// access to adapter for advanced settings
+// Access to adapter for advanced settings
 $push = PushNotification::app('appNameAndroid');
 $push->adapter->setAdapterParameters(['sslverifypeer' => false]);
 ```
