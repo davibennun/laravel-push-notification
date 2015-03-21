@@ -4,7 +4,7 @@ class PushNotification {
 
     public function app($appName)
     {
-        return new App(\Config::get('laravel-push-notification::'.$appName));
+        return new App(config('push-notification.'.$appName));
     }
 
     public function Message()
