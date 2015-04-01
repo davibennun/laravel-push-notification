@@ -21,7 +21,7 @@ class LaravelPushNotificationServiceProvider extends ServiceProvider {
     {
         $this->publishes([
              __DIR__.'/../../config/config.php' => config_path('push-notification.php')
-         ]);
+         ], 'config');
     }
 
     /**
