@@ -7,9 +7,20 @@ Installation
 ----
 
 Update your `composer.json` file to include this package as a dependency
+
+Laravel 4
+
 ```json
 "davibennun/laravel-push-notification": "dev-master"
 ```
+
+Laravel 5
+
+```json
+"davibennun/laravel-push-notification": "dev-laravel5"
+```
+
+Execute `composer update` from your project directory.
 
 Register the PushNotification service provider by adding it to the providers array in the `app/config/app.php` file.
 ```php
