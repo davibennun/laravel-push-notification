@@ -77,6 +77,7 @@ Laravel functions are also available `public_path()` `storage_path()` `base_path
 
 # Usage
 ```php
+use PushNotification;
 
 PushNotification::app('appNameIOS')
                 ->to($deviceToken)
