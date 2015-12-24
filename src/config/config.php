@@ -6,12 +6,12 @@ return array(
         'environment' =>'development',
         'certificate' =>'/path/to/certificate.pem',
         'passPhrase'  =>'password',
-        'service'     =>'apns'
+        'service'     => Sly\NotificationPusher\Adapter\Apns::class
     ),
     'appNameAndroid' => array(
         'environment' =>'production',
         'apiKey'      =>'yourAPIKey',
-        'service'     =>'gcm'
+        'service'     => Sly\NotificationPusher\Adapter\Gcm::class
     )
 
 );
