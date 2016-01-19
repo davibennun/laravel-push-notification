@@ -3,17 +3,17 @@ Laravel Push Notification
 
 Package to enable sending push notifications to devices
 
-Installation
-----
+## Installation
 
 Update your `composer.json` file to include this package as a dependency
 
-Laravel 5
+### Laravel 5
 
 ```json
 "davibennun/laravel-push-notification": "dev-laravel5"
 ```
-Laravel 4.*
+
+### Laravel 4.*
 ```json
 "davibennun/laravel-push-notification": "dev-master"
 ```
@@ -34,16 +34,16 @@ Alias the PushNotification facade by adding it to the aliases array in the `app/
 )
 ```
 
-# Configuration
+## Configuration
 
 Copy the config file into your project by running
 
-Laravel 5
-```php
+### Laravel 5
+```bash
 php artisan vendor:publish --provider="Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider" --tag="config"
 ```
 
-Laravel 4.*
+### Laravel 4.*
 ```
 php artisan vendor:publish --provider="Vendor/Davibennun/LaravelPushNotification/LaravelPushNotificationServiceProvider" --tag="config"
 ```
@@ -85,6 +85,7 @@ PushNotification::app('appNameIOS')
 ```
 Where app argument `appNameIOS` refers to defined service in config file.
 To multiple devices and optioned message:
+
 ```php
 $devices = PushNotification::DeviceCollection(array(
     PushNotification::Device('token', array('badge' => 5)),
