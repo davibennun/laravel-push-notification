@@ -43,6 +43,11 @@ Copy the config file into your project by running
 php artisan vendor:publish --provider="Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider" --tag="config"
 ```
 
+### Lumen
+```bash
+cp vendor/davibennun/laravel-push-notification/src/config/config.php config/push-notification.php
+```
+
 ### Laravel 4.*
 ```
 php artisan vendor:publish --provider="Vendor/Davibennun/LaravelPushNotification/LaravelPushNotificationServiceProvider" --tag="config"

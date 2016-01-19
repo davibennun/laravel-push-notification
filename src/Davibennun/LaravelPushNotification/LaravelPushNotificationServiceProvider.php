@@ -2,6 +2,8 @@
 
 use Illuminate\Support\ServiceProvider,
     Davibennun\LaravelPushNotification\PushNotification;
+use Illuminate\Foundation\Application as LaravelApplication;
+use Laravel\Lumen\Application as LumenApplication;
 
 class LaravelPushNotificationServiceProvider extends ServiceProvider {
 
@@ -20,9 +22,13 @@ class LaravelPushNotificationServiceProvider extends ServiceProvider {
     public function boot()
     {
         $config_path = function_exists('config_path') ? config_path('push-notification.php') : 'push-notification.php';
-        $this->publishes([
-             __DIR__.'/../../config/config.php' => $config_path
-         ], 'config');
+        if ($this->app instanceof LaravelApplication && $app->runningInConsole()) {
+            $this->publishes([
+                 __DIR__.'/../../config/config.php' => $config_path,
+             ], 'config');
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('push-notification');
+        }
     }
 
     /**
