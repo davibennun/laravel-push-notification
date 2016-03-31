@@ -1,17 +1,17 @@
 <?php
 
-return array(
+return [
 
-    'appNameIOS'     => array(
-        'environment' =>'development',
-        'certificate' =>'/path/to/certificate.pem',
-        'passPhrase'  =>'password',
-        'service'     =>'apns'
-    ),
-    'appNameAndroid' => array(
-        'environment' =>'production',
-        'apiKey'      =>'yourAPIKey',
-        'service'     =>'gcm'
-    )
+    'appNameIOS'     => [
+        'environment' => 'development',
+        'certificate' => '/path/to/certificate.pem',
+        'passPhrase'  => 'password',
+        'service'     => 'apns',
+    ],
+    'appNameAndroid' => [
+        'environment' => 'production',
+        'apiKey'      => 'yourAPIKey',
+        'service'     => 'gcm',
+    ],
 
-);
+];
