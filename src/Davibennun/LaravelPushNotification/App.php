@@ -11,7 +11,7 @@ class App {
     {
         $this->pushManager = new PushManager($config['environment'] == "development" ? PushManager::ENVIRONMENT_DEV : PushManager::ENVIRONMENT_PROD);
 
-        $adapterClassName = 'Sly\\NotificationPusher\\Adapter\\'.ucfirst($config['service']);
+        $adapterClassName = $config['service'];
 
         $adapterConfig = $config;
         unset($adapterConfig['environment'], $adapterConfig['service']);
