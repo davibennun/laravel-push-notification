@@ -85,7 +85,7 @@ PushNotification::app('appNameIOS')
 ```
 Where app argument `appNameIOS` refers to defined service in config file.
 
-###Dynamic configuration and Lumen users
+### Dynamic configuration and Lumen users
 You can set the app config array directly: (keep in mind the array schema)
 ```php
 //iOS app
