@@ -8,7 +8,7 @@ Installation
 
 Update your `composer.json` file to include this package as a dependency
 
-Laravel 5
+Laravel 5.*
 
 ```json
 "davibennun/laravel-push-notification": "dev-laravel5"
@@ -22,7 +22,7 @@ Register the PushNotification service provider by adding it to the providers arr
 ```php
 'providers' => array(
 	...
-	'Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider'
+	Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider::class
 )
 ```
 
@@ -30,7 +30,7 @@ Alias the PushNotification facade by adding it to the aliases array in the `app/
 ```php
 'aliases' => array(
 	...
-	'PushNotification' => 'Davibennun\LaravelPushNotification\Facades\PushNotification'
+	'PushNotification' => Davibennun\LaravelPushNotification\Facades\PushNotification::class
 )
 ```
 
