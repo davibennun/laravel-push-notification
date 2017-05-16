@@ -9,6 +9,6 @@ class PushNotification extends Facade {
     *
     * @return string
     */
-    protected static function getFacadeAccessor() { return 'pushNotification'; }
+    protected static function getFacadeAccessor() { return 'PushNotification'; }
 
 }
