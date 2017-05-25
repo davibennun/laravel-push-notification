@@ -80,7 +80,7 @@ Laravel functions are also available `public_path()` `storage_path()` `base_path
 
 PushNotification::app('appNameIOS')
                 ->to($deviceToken)
-                ->send('Hello World, i`m a push message');
+                ->send('Hello World, i`m a push message', array('title' => 'Hey'));
 
 ```
 Where app argument `appNameIOS` refers to defined service in config file.
