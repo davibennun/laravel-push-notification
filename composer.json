@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=8.2.0",
-        "illuminate/support": "4.*",
+        "illuminate/support": "^10.0",
         "sly/notification-pusher": "2.*"
     },
     "autoload": {
